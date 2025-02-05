@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section >
+        <div class="background" style="background-image: url('./asset/bgo.svg');">
+            <img src="./asset/profile.jpg" alt="Profile Picture" data-testid="profilePicture">
+            <h2 class="fullname" data-testid="fullName">Temilade Kolawole</h2>
+        </div>
+        <div class="card" style="">
+        <h4 data-testid="jobTitle">Frontend Developer</h4>
+        <p data-testid="shortBio">
+            I am Temilade and I am a frontend developer passionate about interactive design, 
+            accessibility, and crafting intuitive user journeys. Always eager to explore 
+            the intersection of technology and aesthetics to build engaging web applications.
+        </p>
+        <p data-testid="currentLocation">Lagos, Nigeria</p>
+        <p data-testid="emailAddress">
+            <a href="mailto:temiladekolawole008@gmail.com" target="_blank">
+                temiladekolawole008@gmail.com
+            </a>
+        </p>
+        <div class="social-links" data-testid="socialLinks">
+            <a href="https://linkedin.com/in/temiladekolawole13" target="_blank">LinkedIn</a>
+            <a href="https://github.com/kolawoleTemilade" target="_blank">GitHub</a>
+            <a href="https://twitter.com/temmie415" target="_blank">Twitter</a>
+        </div>
+    </div>
+        <p data-testid="currentTimeUTC" id="utcTime"></p>
+    </section>
+
+    <script>
+        // Update UTC time every second
+        function updateTime() {
+            const utcTime = new Date().toUTCString();
+            document.getElementById('utcTime').textContent = `UTC Time: ${utcTime}`;
+        }
+        
+        // Initial call and set interval
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
