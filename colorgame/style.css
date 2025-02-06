@@ -1,0 +1,52 @@
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        #colorBox {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            border: 3px solid #333;
+        }
+
+        .colorOption {
+            width: 80px;
+            height: 40px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #gameStatus {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        #score {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        #newGameButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #newGameButton:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .colorOption {
+                width: 60px;
+                height: 30px;
+            }
+        }
+    
