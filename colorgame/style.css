@@ -2,14 +2,21 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            padding: 20px;
+            padding: 20px; 
+            
+            
+         }
+
+        #gameInstructions{
+            margin: 100px  0;
         }
 
         #colorBox {
             width: 150px;
             height: 150px;
             margin: 20px auto;
-            border: 3px solid #333;
+            border: 2px solid gold;
+            border-radius: 150px;
         }
 
         .colorOption {

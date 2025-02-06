@@ -1,14 +1,24 @@
-
-const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
-let targetColor,
-  score = 0;
-
-function getRandomColor() {
-  return colors[Math.floor(Math.random() * colors.length)];
+function generateRandomColor() {
+  const randomColor = () =>
+    Math.floor(Math.random() * 256); 
+  return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
 }
 
+function generateColorSet() {
+  const colorSet = new Set();
+  while (colorSet.size < 6) {
+    colorSet.add(generateRandomColor());
+  }
+  return Array.from(colorSet);
+}
+
+let colors = [],
+  targetColor,
+  score = 0;
+
 function startGame() {
-  targetColor = getRandomColor();
+  colors = generateColorSet(); // Generate a new set of random colors
+  targetColor = colors[Math.floor(Math.random() * colors.length)];
   document.getElementById("colorBox").style.backgroundColor = targetColor;
 
   const colorOptions = document.getElementById("colorOptions");
@@ -23,22 +33,24 @@ function startGame() {
     colorOptions.appendChild(button);
   });
 
-  document.getElementById("gameStatus").textContent = "";
+  document.getElementById("gameStatus").textContent = "Guess the correct color!";
 }
 
 function checkGuess(guess) {
   const status = document.getElementById("gameStatus");
+
   if (guess === targetColor) {
-    status.textContent = "Correct! 🎉";
+    status.textContent = "Correct! 🎉 New round starting...";
     score++;
-    document.getElementById("score").textContent = score;
+    document.getElementById("score").textContent = `Score: ${score}`;
+    
+    // Automatically start a new round after a short delay
+    setTimeout(startGame, 1000); 
   } else {
-    status.textContent = "Wrong! Try Again.";
+    status.textContent = "Wrong! ❌ Try again.";
   }
 }
 
-document
-  .getElementById("newGameButton")
-  .addEventListener("click", startGame);
+document.getElementById("newGameButton").addEventListener("click", startGame);
 
 startGame();
